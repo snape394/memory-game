@@ -1,0 +1,138 @@
+body {
+  background: #f5f7fa;
+  font-family: "Quicksand", sans-serif;
+  font-display: swap;
+}
+button {
+  outline: none;
+  border: none;
+}
+label {
+  user-select: none;
+}
+button, label, input[type='checkbox'], .clickable {
+  cursor: pointer;
+}
+.header {
+  text-align: center;
+}
+.margin-right {
+  margin-right: 0.375em;
+}
+.info {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 0 1.2em;
+}
+.info .levels {
+  text-align: right;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  perspective: 1000;
+  -webkit-perspective: 1000;
+  transition: 1s;
+  -webkit-transition: 1s;
+  position: relative;
+}
+.button {
+  background: #1e7a90;
+  color: #f5f7fa;
+  padding: 0.3em 1em;
+  font-size: 1em;
+  letter-spacing: 0.125em;
+  white-space: nowrap;
+  font-weight: 300;
+}
+.centered {
+  position: absolute;
+  top: 52.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.preserve-3d {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.centered-faceup {
+  transform: translate(-50%, -50%) rotateX(90deg);
+  animation: lastMinHide 0.5s linear;
+  animation-fill-mode: forwards;
+}
+.centered-facedown {
+  transform: translate(-50%, -50%) rotateX(-90deg);
+  animation: lastMinHide 0.5s linear;
+  animation-fill-mode: forwards;
+}
+.transition-3d {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.countdown {
+  color: #f35397;
+  animation: expand 1s linear infinite;
+  background: #2c2146;
+  padding: 0em 1rem;
+  border-radius: 50%;
+}
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1em;
+}
+.board.faded {
+  transition: opacity 1s;
+  opacity: 0.1;
+}
+.board .cell {
+  animation: appear 1s linear;
+  background: #2c2146;
+  box-shadow: 0 0 1px 0 grey;
+}
+.board .cell.flipped {
+  transform: rotateY(180deg);
+  background: #f35397;
+}
+.board .cell.flipped.hotdog {
+  background: url("https://media.tumblr.com/efd2ffa6973e54814b30a76507c9dc70/tumblr_inline_mt2ezgHNJH1qz4rgp.gif");
+  background-size: 100%;
+  box-shadow: inset 0 0 0 1px #f35397;
+}
+.board .cell.flipped.wrong {
+  background: #d22e44;
+  box-shadow: 0 0 1px 0 grey;
+}
+.board .cell.flipped.missed {
+  background: #ad4897;
+  box-shadow: 0 0 1px 0 grey;
+}
+.board .cell.padded {
+  transform: scale(0.8);
+}
+.board .cell.padded.flipped {
+  transform: rotateY(180deg) scale(0.8);
+}
+@keyframes appear {
+  0% {
+    transform: scale(0.2);
+ }
+}
+@keyframes expand {
+  0% {
+    font-size: 1em;
+ }
+  100% {
+    font-size: 3em;
+    opacity: 0.5;
+ }
+}
+@keyframes lastMinHide {
+  99% {
+    opacity: 1;
+ }
+  100% {
+    opacity: 0;
+ }
+}
