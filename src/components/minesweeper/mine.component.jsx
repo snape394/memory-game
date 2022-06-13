@@ -185,10 +185,10 @@ export default class Minesweeper extends React.Component {
         <PlayField fields={playField} onClick={(index) => this.onClick(index)} onContextMenu={(event, index) => this.onContextMenu(event, index)} />
         <h2 className="minesweeper--success">Hooray!!! You did it!</h2>
         <div className="minesweeper--link">
-          <a onClick={() => this.setup(mines)}>Restart game</a><br/>
-          <a onClick={() => this.setup(10)}>Normal</a><br/>
-          <a onClick={() => this.setup(20)}>Hard</a><br/>
-          <a onClick={() => this.setup(50)}>Insane</a>
+          <button onClick={() => this.setup(mines)}>Restart game</button><br/>
+          <button onClick={() => this.setup(10)}>Normal</button><br/>
+          <button onClick={() => this.setup(20)}>Hard</button><br/>
+          <button onClick={() => this.setup(50)}>Insane</button>
         </div>
       </div>
     )
