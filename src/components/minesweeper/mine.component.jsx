@@ -163,11 +163,7 @@ export default class Minesweeper extends React.Component {
     const rows = [rowIndex - 1, rowIndex, rowIndex + 1].filter((index) => index >= 0 && index < size)
     const tiles = [tileIndex - 1, tileIndex, tileIndex + 1].filter((index) => index >= 0 && index < size)
 
-    rows.map((row) => tiles.map((tile) => {
-      if (! playField[row][tile].isMine) {
-        this.openTile(row, tile)
-      }
-    }))
+    rows.map((row) => tiles.map((tile) => ! playField[row][tile].isMine?this.openTile(row, tile):''))
   }
 
   render() {
