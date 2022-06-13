@@ -1,0 +1,106 @@
+body {
+    text-align: center;
+    background: #faf9f8;
+    color: #001319;
+    user-select: none;
+}
+h1 {
+    margin: 20px 0;
+}
+a {
+    font-size: 12px;
+    cursor: pointer;
+}
+a:hover {
+    text-decoration: underline;
+}
+.minesweeper {
+    position: relative;
+}
+.minesweeper--playfield {
+    font-size: 0;
+    display: inline-block;
+    border: 1px solid #00b2f3;
+}
+.success .minesweeper--playfield {
+    border-color: #00ce5c;
+    box-shadow: 0 0 4px #00ce5c;
+    animation: spin 1s forwards 2s;
+}
+.fail .minesweeper--playfield {
+    border-color: #ff4a48;
+    box-shadow: 0 0 4px #ff4a48;
+    animation: shake 1s forwards;
+}
+.minesweeper--tile {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 30px;
+    background: #e6f8fe;
+    box-shadow: inset 0 0 1px #00b2f3;
+    transition: all 0.2s ease-in-out;
+}
+.minesweeper--tile.open {
+    background: #e6fbef;
+    box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    font-weight: 600;
+}
+.minesweeper--tile.mine {
+    background: #ff4a48;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.minesweeper--tile.flag {
+    background: #ffa904;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.minesweeper--success {
+    font-size: 20px;
+    line-height: 40px;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    width: 100%;
+    text-align: center;
+    z-index: -1;
+}
+.minesweeper--link {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    align-items: center;
+}
+.minesweeper--link a {
+    margin: 0 5px;
+    border: 1px solid;
+    padding: 10px;
+    width: 100px;
+    border-radius:10px;
+
+}
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+   }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+   }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+   }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+   }
+}
+@keyframes spin {
+    0% {
+        transform: scale(1) rotate(0deg);
+   }
+    100% {
+        transform: scale(0) rotate(720deg);
+   }
+}
